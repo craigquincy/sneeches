@@ -1,7 +1,7 @@
 let sneechesFunctions = require('../sneeches.js')
 let expect = require('chai').expect
 
-let sneeches1 = [
+var sneeches = [
   {
     name: 'Bob',
     stars: true
@@ -19,14 +19,14 @@ let sneeches1 = [
 describe('Sneech HOFs', function() {
 
   it('onlyStars', function() {
-    expect(sneechesFunctions.onlyStars(sneeches1)).to.deep.equal([{
+    expect(sneechesFunctions.onlyStars(sneeches)).to.deep.equal([{
       name: 'Bob',
       stars: true
     }])
   })
 
   it('modifyStarCounts', function() {
-    expect(sneechesFunctions.modifyStarCounts(sneeches1)).to.deep.equal([
+    expect(sneechesFunctions.modifyStarCounts(sneeches)).to.deep.equal([
       {
         name: 'Bob',
         stars: 1
@@ -37,13 +37,13 @@ describe('Sneech HOFs', function() {
       },
       {
         name: 'Suzie',
-        stars: 1
+        stars: 0
       }])
   })
 
   it('addStars', function() {
-    sneechesFunctions.addStars(sneeches1)
-    expect(sneeches1).to.deep.equal([  {
+    sneechesFunctions.addStars(sneeches)
+    expect(sneeches).to.deep.equal([  {
         name: 'Bob',
         stars: 2
       },
